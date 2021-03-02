@@ -1,14 +1,12 @@
-HOME=/home/hadoop/leedua/
+HOME=/home/qys/Documents/git_clone/myOpenMVS/
 cd ${HOME}mvsbuild
 
 DEBUG="Release";
 case "$1" in
-  "-d")DEBUG="DEBUG";;
+  "-d")DEBUG="RelWithDebInfo";;
   *);;
 esac
 
-cmake . ../openMVS -DCMAKE_BUILD_TYPE=${DEBUG} -DVCG_ROOT=${HOME}vcglib
+cmake . ../openMVS-1 -DCMAKE_BUILD_TYPE=${DEBUG} -DVCG_ROOT=${HOME}vcglib
 
-cmake --build . -j64 --target RefineMesh
-cmake --build . -j64 --target ViewFilter
-cmake --build . -j64 --target TextureMesh
+cmake --build . -j 4 --target TextureMesh
